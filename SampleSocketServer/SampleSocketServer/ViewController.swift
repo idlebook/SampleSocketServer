@@ -9,10 +9,13 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    
+    @IBOutlet weak var hintLabel: NSTextField!
+    fileprivate lazy var serverMgr : ServerManager = ServerManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -22,6 +25,14 @@ class ViewController: NSViewController {
         }
     }
 
+    @IBAction func startServer(_ sender: Any) {
+        serverMgr.startRunning()
+        hintLabel.stringValue = "服务器已经开启ing"
+    }
 
+    @IBAction func stopServer(_ sender: Any) {
+        serverMgr.stopRunning()
+        hintLabel.stringValue = "服务器未开启"
+    }
 }
 

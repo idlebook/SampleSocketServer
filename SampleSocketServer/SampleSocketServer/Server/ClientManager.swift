@@ -41,7 +41,7 @@ extension ClientManager{
         
         // 头部消息长度为4, 类型长度为2
         while isClientConnected{
-            // MARK:- ??
+            // 先确定读出header的信息
             if let lMsg = tcpClient.read(4){
                 // 读取长度的Data
                 let headData = Data(bytes: lMsg)
